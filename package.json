@@ -1,0 +1,26 @@
+{
+  "name": "clrs-analyzer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build:wasm": "em++ -O3 -std=c++17 native/clrs_engine.cpp --bind -s WASM=1 -s MODULARIZE=1 -s EXPORT_NAME=\"loadCLRSModule\" -o public/wasm/clrs_engine.js",
+    "dev": "bun run build:wasm && vite",
+    "lint": "oxlint",
+    "build": "bun run build:wasm && tsc && vite build"
+  },
+  "dependencies": {
+    "lucide-react": "^1.33.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "oxlint": "^1.79.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  }
+}
